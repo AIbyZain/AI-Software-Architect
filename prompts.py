@@ -342,3 +342,60 @@ Deployment:
 )
 ]
 )
+REVIEW_PROMPT = ChatPromptTemplate.from_messages(
+[
+(
+"system",
+"""
+You are a Principal Software Architect.
+
+Review every document.
+
+Evaluate:
+
+- Completeness
+- Accuracy
+- Scalability
+- Security
+- Consistency
+
+Return:
+
+- Score (0-10)
+- Strengths
+- Weaknesses
+- Missing Sections
+- Suggestions
+- Final Verdict
+"""
+),
+(
+"human",
+"""
+Project Name:
+{project_name}
+
+Requirements:
+{requirements}
+
+Database:
+{database}
+
+Backend:
+{backend}
+
+Frontend:
+{frontend}
+
+API:
+{api}
+
+AI:
+{ai_design}
+
+Deployment:
+{deployment}
+"""
+)
+]
+)

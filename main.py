@@ -8,6 +8,7 @@ from ai_design_agent import Ai_agent_node
 from devops_agent import devops_agent_node
 from cost_agent import cost_agent_node
 from timeline_agent import timeline_agent_node
+from reviewer_agent import reviewer_agent_node
 from report_agent import report_agent
 
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -26,6 +27,7 @@ graph.add_node("ai_agent" , Ai_agent_node)
 graph.add_node("devops_agent" , devops_agent_node)
 graph.add_node("cost_agent" , cost_agent_node)
 graph.add_node("timeline_agent" , timeline_agent_node)
+graph.add_node("review_agent" , reviewer_agent_node)
 
 
 graph.add_edge(START , "requirements_node")
@@ -45,7 +47,8 @@ graph.add_edge(
     "report_agent"
 )
 
-graph.add_edge("report_agent" , END)
+graph.add_edge("report_agent" , "review_agent")
+graph.add_edge("review_agent" , END)
 
 app = graph.compile()
 
@@ -80,4 +83,5 @@ inital_state = {
     "review_score": 0.0,
     "messages": []
 }
-app.invoke(inital_state)
+final_state = app.invoke(inital_state)
+print(f'Review : {final_state["review_score"]}')
