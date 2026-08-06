@@ -1,0 +1,1 @@
+Build a Banking Management System.Customers create accounts, transfer money, pay bills, apply for loans, and manage transactions.Employees approve loans.Admins monitor operations.Include fraud detection, AI spending insights, budgeting recommendations, and multi-factor authentication.

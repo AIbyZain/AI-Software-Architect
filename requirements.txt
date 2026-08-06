@@ -1,0 +1,122 @@
+# AI / LLM
+langchain
+langgraph
+langsmith
+langchain-google-genai
+langchain-openai
+langchain-community
+langchain-core
+
+# Vector Database
+chromadb
+faiss-cpu
+
+# Embeddings
+sentence-transformers
+
+# API Framework
+fastapi
+uvicorn
+python-multipart
+
+# Database
+sqlalchemy
+psycopg2-binary
+alembic
+
+# Authentication
+passlib
+bcrypt
+python-jose
+
+# Data Validation
+pydantic
+pydantic-settings
+
+# Environment Variables
+python-dotenv
+
+# HTTP Requests
+requests
+httpx
+
+# Search Tool
+tavily-python
+
+# Graphs & Diagrams
+graphviz
+diagrams
+networkx
+
+# PDF / Document Generation
+reportlab
+markdown
+weasyprint
+jinja2
+
+# File Handling
+aiofiles
+
+# Logging
+loguru
+rich
+
+# Async Utilities
+anyio
+
+# Caching
+redis
+
+# Task Queue (Optional)
+celery
+
+# Memory / Serialization
+orjson
+
+# Token Counting
+tiktoken
+
+# Utilities
+typing-extensions
+tenacity
+cachetools
+
+# JSON Handling
+jsonschema
+
+# YAML
+pyyaml
+
+# Date & Time
+python-dateutil
+
+# CLI
+typer
+
+# Testing
+pytest
+pytest-asyncio
+
+# Code Quality
+black
+isort
+flake8
+
+# Optional MCP Support
+mcp
+
+# Optional Git Integration
+GitPython
+
+# Optional GitHub API
+PyGithub
+
+# Optional Docker Control
+docker
+
+# Optional Monitoring
+prometheus-client
+
+# Optional Configuration
+dynaconf
+streamlit
