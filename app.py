@@ -12,7 +12,8 @@ run = FastAPI(
 )
 run.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # your Vite dev origin
+    allow_origins=["http://localhost:5173",
+                   "https://aisoftwarearchitect.netlify.app"],  # your Vite dev origin
     allow_methods=["*"],
     allow_headers=["*"],
 )
