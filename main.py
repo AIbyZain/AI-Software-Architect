@@ -52,36 +52,36 @@ graph.add_edge("review_agent" , END)
 
 app = graph.compile()
 
-model = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite")
-user_prompt = input("Enter Project ideas: ")
-project_name = model.invoke("""
-You are an AI assistant that extracts a concise software project name from a user's project description.
+# model = ChatGoogleGenerativeAI(model="gemini-3.1-flash-lite")
+# user_prompt = input("Enter Project ideas: ")
+# project_name = model.invoke("""
+# You are an AI assistant that extracts a concise software project name from a user's project description.
 
-Rules:
-- Return ONLY the project name.
-- Use 2–5 words whenever possible.
-- Make it descriptive and professional.
-- Do not include explanations, quotes, markdown, or punctuation unless it is part of the name.
-- If the user already provides a project name, use it.
-- If no name is provided, generate an appropriate one based on the description.
+# Rules:
+# - Return ONLY the project name.
+# - Use 2–5 words whenever possible.
+# - Make it descriptive and professional.
+# - Do not include explanations, quotes, markdown, or punctuation unless it is part of the name.
+# - If the user already provides a project name, use it.
+# - If no name is provided, generate an appropriate one based on the description.
 
-""")
+# """)
 
 
-inital_state = {
-    "project_name": project_name,
-    "user_prompt": user_prompt,
-    "requirements": "",
-    "database": "",
-    "backend": "",
-    "frontend": "",
-    "api": "",
-    "ai_design": "",
-    "deployment": "",
-    "timeline": "",
-    "cost": "",
-    "review_score": 0.0,
-    "messages": []
-}
-final_state = app.invoke(inital_state)
-print(f'Review : {final_state["review_score"]}')
+# inital_state = {
+#     "project_name": project_name,
+#     "user_prompt": user_prompt,
+#     "requirements": "",
+#     "database": "",
+#     "backend": "",
+#     "frontend": "",
+#     "api": "",
+#     "ai_design": "",
+#     "deployment": "",
+#     "timeline": "",
+#     "cost": "",
+#     "review_score": 0.0,
+#     "messages": []
+# }
+# final_state = app.invoke(inital_state)
+# print(f'Review : {final_state["review_score"]}')

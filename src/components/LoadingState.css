@@ -1,0 +1,80 @@
+.loading-card {
+  max-width: 520px;
+  margin: 64px auto;
+  padding: 40px 36px;
+  background: var(--ink-900);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  text-align: center;
+  box-shadow: var(--shadow-card);
+}
+
+.loading-card__scan {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.loading-card__blueprint {
+  width: 200px;
+  height: 132px;
+}
+
+.lc-frame {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.lc-line {
+  stroke: var(--line);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+.lc-node {
+  fill: var(--ink-800);
+  stroke: var(--cyan-500);
+  stroke-width: 1.5;
+}
+
+.lc-sweep {
+  fill: var(--cyan-400);
+  opacity: 0.55;
+  animation: sweep 2.2s ease-in-out infinite;
+}
+
+@keyframes sweep {
+  0% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(114px);
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+}
+
+.loading-card__title {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.loading-card__body {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.loading-card__body strong {
+  color: var(--text-primary);
+}
+
+.loading-card__timer {
+  margin-top: 24px;
+  color: var(--cyan-400);
+}

@@ -1,0 +1,135 @@
+:root {
+  /* ---- Surfaces (drafting-table ink) ---- */
+  --ink-950: #0a121c;
+  --ink-900: #0f1b29;
+  --ink-800: #16283d;
+  --ink-700: #1e3752;
+  --line: #2b4a68;
+  --line-soft: rgba(111, 216, 234, 0.08);
+
+  /* ---- Paper (document surfaces) ---- */
+  --paper: #f6f2e7;
+  --paper-line: #e2d9c2;
+  --ink-on-paper: #1c2836;
+  --ink-on-paper-soft: #56626f;
+
+  /* ---- Accent: blueprint cyan ---- */
+  --cyan-300: #a7e8f0;
+  --cyan-400: #6fd8ea;
+  --cyan-500: #3fb9ce;
+
+  /* ---- Signal colors ---- */
+  --amber-500: #f0a93e;
+  --green-500: #4fcb8d;
+  --red-500: #e5636b;
+  --red-600: #c94a53;
+
+  /* ---- Text on ink ---- */
+  --text-primary: #e9eff5;
+  --text-secondary: #93a7bc;
+  --text-muted: #5d7793;
+
+  /* ---- Type ---- */
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+
+  /* ---- Layout ---- */
+  --sidebar-w: 248px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --shadow-card: 0 8px 24px rgba(4, 9, 16, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--ink-950);
+  background-image:
+    linear-gradient(var(--line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: var(--font-body);
+}
+
+a {
+  color: var(--cyan-400);
+}
+
+::selection {
+  background: var(--cyan-500);
+  color: var(--ink-950);
+}
+
+/* Visible keyboard focus everywhere */
+:focus-visible {
+  outline: 2px solid var(--cyan-400);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Small reusable utility: sheet number chip ---- */
+.sheet-number {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--cyan-400);
+}
+
+.scroll-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+.scroll-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+.scroll-thin::-webkit-scrollbar-thumb {
+  background: var(--ink-700);
+  border-radius: 8px;
+}
