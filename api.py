@@ -1,8 +1,12 @@
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field, ValidationError
 from main import app as workflow
 from fastapi.middleware.cors import CORSMiddleware
 
+import os
+import zipfile
+import tempfile
 
 
 run = FastAPI(
@@ -10,13 +14,17 @@ run = FastAPI(
     description="API for generating AI-powered software architecture",
     version="1.0.0"
 )
+
 run.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173",
-                   "https://aisoftwarearchitect.netlify.app"],  # your Vite dev origin
+    allow_origins=[
+        "http://localhost:5173",
+        "https://aisoftwarearchitect.netlify.app"
+    ],
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 class InputProject(BaseModel):
     user_prompt: str = Field(
@@ -24,6 +32,7 @@ class InputProject(BaseModel):
         min_length=15,
         description="Detailed description of the project"
     )
+
     project_name: str = Field(
         ...,
         min_length=4,
@@ -114,3 +123,95 @@ def generate(project: InputProject):
             }
         )
 
+
+REPORTS_DIR = "reports"
+
+
+@run.get("/reports")
+def get_reports():
+    """
+    Returns all available reports inside the reports folder.
+    """
+
+    if not os.path.exists(REPORTS_DIR):
+        raise HTTPException(
+            status_code=404,
+            detail="Reports folder does not exist."
+        )
+
+    files = [
+        file
+        for file in os.listdir(REPORTS_DIR)
+        if os.path.isfile(os.path.join(REPORTS_DIR, file))
+    ]
+
+    return {
+        "success": True,
+        "count": len(files),
+        "reports": files
+    }
+
+
+@run.get("/reports/download")
+def download_reports():
+    """
+    Creates a ZIP file containing all reports
+    and returns it for download.
+    """
+
+    if not os.path.exists(REPORTS_DIR):
+        raise HTTPException(
+            status_code=404,
+            detail="Reports folder does not exist."
+        )
+
+    files = [
+        file
+        for file in os.listdir(REPORTS_DIR)
+        if os.path.isfile(os.path.join(REPORTS_DIR, file))
+    ]
+
+    if not files:
+        raise HTTPException(
+            status_code=404,
+            detail="No reports available for download."
+        )
+
+    # Create temporary ZIP file
+    temp_zip = tempfile.NamedTemporaryFile(
+        delete=False,
+        suffix=".zip"
+    )
+
+    zip_path = temp_zip.name
+    temp_zip.close()
+
+    try:
+        with zipfile.ZipFile(
+            zip_path,
+            "w",
+            zipfile.ZIP_DEFLATED
+        ) as zip_file:
+
+            for file in files:
+                file_path = os.path.join(REPORTS_DIR, file)
+
+                # Keep files inside "reports/" in the ZIP
+                zip_file.write(
+                    file_path,
+                    arcname=f"reports/{file}"
+                )
+
+        return FileResponse(
+            path=zip_path,
+            media_type="application/zip",
+            filename="AI_Software_Architect_Reports.zip"
+        )
+
+    except Exception:
+        if os.path.exists(zip_path):
+            os.remove(zip_path)
+        raise HTTPException(
+            status_code=500,
+            detail="Failed to create reports ZIP file."
+        )
