@@ -74,7 +74,19 @@ def generate(project: InputProject):
         return {
             "success": True,
             "project_name": project.project_name,
-            "architecture": final_state
+            "architecture": {
+                "project_name": final_state.get("project_name"),
+                "requirements": final_state.get("requirements"),
+                "database": final_state.get("database"),
+                "backend": final_state.get("backend"),
+                "frontend": final_state.get("frontend"),
+                "api": final_state.get("api"),
+                "ai_design": final_state.get("ai_design"),
+                "deployment": final_state.get("deployment"),
+                "timeline": final_state.get("timeline"),
+                "cost": final_state.get("cost"),
+                "review_score": final_state.get("review_score")
+            }
         }
 
     except ValidationError as e:

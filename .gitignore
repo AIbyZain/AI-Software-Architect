@@ -1,6 +1,4 @@
-node_modules/
+node_modules
+dist
 .env
-__pycache__/
-*.pyc
-chroma.db/
-temp_uploads/
+.DS_Store
