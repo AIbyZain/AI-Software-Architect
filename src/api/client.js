@@ -1,15 +1,9 @@
 // Centralized API configuration. Every request in the app is built from
 // this single base URL, so switching between local development and a
 // deployed backend only ever requires changing VITE_API_URL.
-const API_URL = import.meta.env.VITE_API_URL;
-
-console.log("VITE_API_URL:", API_URL);
-
-if (!API_URL) {
-  throw new Error("VITE_API_URL is missing");
-}
-
-export const API_BASE_URL = API_URL.replace(/\/+$/, "");
+export const API_BASE_URL = (
+  import.meta.env.VITE_API_URL || "http://localhost:8000"
+).replace(/\/+$/, "");
 
 /**
  * A normalized error thrown for any non-2xx API response.
