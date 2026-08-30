@@ -19,15 +19,8 @@ fastapi
 uvicorn
 python-multipart
 
-# Database
-sqlalchemy
-psycopg2-binary
-alembic
 
-# Authentication
-passlib
-bcrypt
-python-jose
+
 
 # Data Validation
 pydantic
@@ -43,10 +36,7 @@ httpx
 # Search Tool
 tavily-python
 
-# Graphs & Diagrams
-graphviz
-diagrams
-networkx
+
 
 # PDF / Document Generation
 reportlab
