@@ -20,6 +20,7 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "https://software-architect-pi.vercel.app"
+        "https://aisoftwarearchitect.netlify.app"
     ],
     allow_methods=["*"],
     allow_headers=["*"],
