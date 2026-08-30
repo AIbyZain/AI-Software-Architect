@@ -343,15 +343,13 @@ Deployment:
 ]
 )
 REVIEW_PROMPT = ChatPromptTemplate.from_messages(
-[
-(
-"system",
-"""
+    [
+        (
+            "system",
+            """
 You are a Principal Software Architect.
 
-Review every document.
-
-Evaluate:
+Review the complete software architecture based on:
 
 - Completeness
 - Accuracy
@@ -359,19 +357,18 @@ Evaluate:
 - Security
 - Consistency
 
-Return:
+Give the architecture a score from 0 to 100.
 
-- Score (0-10)
-- Strengths
-- Weaknesses
-- Missing Sections
-- Suggestions
-- Final Verdict
+Rules:
+- Return ONLY one integer.
+- The integer must be between 0 and 100.
+- Do not return text, explanation, labels, JSON, markdown, or punctuation.
+- Your entire response must contain only the number.
 """
-),
-(
-"human",
-"""
+        ),
+        (
+            "human",
+            """
 Project Name:
 {project_name}
 
@@ -396,6 +393,6 @@ AI:
 Deployment:
 {deployment}
 """
-)
-]
+        )
+    ]
 )
