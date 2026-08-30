@@ -19,7 +19,7 @@ run.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://aisoftwarearchitect.netlify.app"
+        "https://software-architect-pi.vercel.app/"
     ],
     allow_methods=["*"],
     allow_headers=["*"],
