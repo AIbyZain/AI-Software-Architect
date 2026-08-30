@@ -9,18 +9,12 @@ langchain-core
 
 # Vector Database
 chromadb
-faiss-cpu
 
-# Embeddings
-sentence-transformers
 
 # API Framework
 fastapi
 uvicorn
 python-multipart
-
-
-
 
 # Data Validation
 pydantic
@@ -101,12 +95,6 @@ GitPython
 # Optional GitHub API
 PyGithub
 
-# Optional Docker Control
-docker
 
 # Optional Monitoring
 prometheus-client
-
-# Optional Configuration
-dynaconf
-streamlit
