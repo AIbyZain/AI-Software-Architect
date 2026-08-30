@@ -9,17 +9,17 @@ import zipfile
 import tempfile
 
 
-run = FastAPI(
+app = FastAPI(
     title="AI Software Architect API",
     description="API for generating AI-powered software architecture",
     version="1.0.0"
 )
 
-run.add_middleware(
+app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://software-architect-pi.vercel.app/"
+        "https://software-architect-pi.vercel.app"
     ],
     allow_methods=["*"],
     allow_headers=["*"],
@@ -40,7 +40,7 @@ class InputProject(BaseModel):
     )
 
 
-@run.get("/")
+@app.get("/")
 def home():
     return {
         "message": "Welcome to AI Software Architect API",
@@ -49,7 +49,7 @@ def home():
     }
 
 
-@run.post("/api/generate")
+@app.post("/generate")
 def generate(project: InputProject):
 
     initial_state = {
@@ -139,7 +139,7 @@ def generate(project: InputProject):
 REPORTS_DIR = "reports"
 
 
-@run.get("/reports")
+@app.get("/reports")
 def get_reports():
     """
     Returns all available reports inside the reports folder.
@@ -164,7 +164,7 @@ def get_reports():
     }
 
 
-@run.get("/reports/download")
+@app.get("/reports/download")
 def download_reports():
     """
     Creates a ZIP file containing all reports
