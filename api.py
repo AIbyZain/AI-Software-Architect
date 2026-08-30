@@ -49,7 +49,7 @@ def home():
     }
 
 
-@run.post("/generate")
+@run.post("/api/generate")
 def generate(project: InputProject):
 
     initial_state = {
