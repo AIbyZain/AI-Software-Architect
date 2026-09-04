@@ -3,98 +3,31 @@ langchain
 langgraph
 langsmith
 langchain-google-genai
-langchain-openai
 langchain-community
 langchain-core
 
-# Vector Database
-chromadb
-
-
-# API Framework
+# API
 fastapi
 uvicorn
 python-multipart
 
-# Data Validation
-pydantic
-pydantic-settings
-
-# Environment Variables
+# Environment
 python-dotenv
 
-# HTTP Requests
+# Search
+tavily-python
+
+# PDF / Documents
+reportlab
+markdown
+jinja2
+
+# HTTP
 requests
 httpx
 
-# Search Tool
-tavily-python
-
-
-
-# PDF / Document Generation
-reportlab
-markdown
-weasyprint
-jinja2
-
-# File Handling
-aiofiles
-
-# Logging
-loguru
-rich
-
-# Async Utilities
-anyio
-
-# Caching
-redis
-
-# Task Queue (Optional)
-celery
-
-# Memory / Serialization
-orjson
-
-# Token Counting
-tiktoken
-
 # Utilities
+pydantic
+pydantic-settings
 typing-extensions
 tenacity
-cachetools
-
-# JSON Handling
-jsonschema
-
-# YAML
-pyyaml
-
-# Date & Time
-python-dateutil
-
-# CLI
-typer
-
-# Testing
-pytest
-pytest-asyncio
-
-# Code Quality
-black
-isort
-flake8
-
-# Optional MCP Support
-mcp
-
-# Optional Git Integration
-GitPython
-
-# Optional GitHub API
-PyGithub
-
-
-# Optional Monitoring
-prometheus-client
