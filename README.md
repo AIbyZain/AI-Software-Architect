@@ -278,7 +278,7 @@ PDF Report
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/AI-Software-Architect.git
+git clone https://github.com/AIbyZain/AI-Software-Architect.git
 ```
 
 Move into the project
