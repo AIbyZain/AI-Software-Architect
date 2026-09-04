@@ -296,7 +296,8 @@ pip install -r requirements.txt
 Create a `.env` file
 
 ```env
-GOOGLE_API_KEY=your_api_key
+GEMINI_API_KEY=your_api_key
+VITE_API_KEY = your_server_name
 ```
 
 Run the server
@@ -305,6 +306,10 @@ Run the server
 uvicorn api:app --reload
 ```
 Run the Project
+
+```bash
+npm install
+```
 
 ```bash
 npm run dev
