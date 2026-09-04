@@ -21,6 +21,7 @@ app.add_middleware(
         "http://localhost:5173",
         "https://software-architect-pi.vercel.app"
         "https://aisoftwarearchitect.netlify.app"
+        "https://ai-software-architect-ogoe.vercel.app/"
     ],
     allow_methods=["*"],
     allow_headers=["*"],
