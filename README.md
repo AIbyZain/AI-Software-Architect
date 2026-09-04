@@ -299,11 +299,17 @@ Create a `.env` file
 GOOGLE_API_KEY=your_api_key
 ```
 
-Run the project
+Run the server
 
 ```bash
-python main.py
+uvicorn api:app --reload
 ```
+Run the Project
+
+```bash
+npm run dev
+```
+
 
 ---
 
