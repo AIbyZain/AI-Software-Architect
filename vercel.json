@@ -1,4 +1,17 @@
 {
-  "src": "/generate",
-  "dest": "api.py"
+  "version": 2,
+  "builds": [
+    {
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/api.py"
+    }
+  ]
 }
