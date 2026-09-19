@@ -2,7 +2,7 @@
 // this single base URL, so switching between local development and a
 // deployed backend only ever requires changing VITE_API_URL.
 export const API_BASE_URL = (
-  import.meta.env.VITE_API_URL || "http://localhost:8000"
+  import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "/api" : "http://localhost:8000/api")
 ).replace(/\/+$/, "");
 
 /**

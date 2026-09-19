@@ -40,7 +40,7 @@ class InputProject(BaseModel):
     )
 
 
-@app.get("/")
+@app.get("/api/")
 def home():
     return {
         "message": "Welcome to AI Software Architect API",
@@ -49,7 +49,7 @@ def home():
     }
 
 
-@app.post("/generate")
+@app.post("/api/generate")
 def generate(project: InputProject):
 
     initial_state = {
@@ -139,7 +139,7 @@ def generate(project: InputProject):
 REPORTS_DIR = "reports"
 
 
-@app.get("/reports")
+@app.get("/api/reports")
 def get_reports():
     """
     Returns all available reports inside the reports folder.
@@ -164,7 +164,7 @@ def get_reports():
     }
 
 
-@app.get("/reports/download")
+@app.get("/api/reports/download")
 def download_reports():
     """
     Creates a ZIP file containing all reports
